@@ -5,7 +5,8 @@
 
 angular.module('psleApp', [
     'firebase',
-    'ui.router'
+    'ui.router',
+    'uiGmapgoogle-maps'
   ])
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -38,9 +39,23 @@ angular.module('psleApp', [
                 url: '/profile',
                 controller: 'ProfileCtrl as profileCtrl',
                 templateUrl: 'users/profile.html'
+            })
+            .state('search', {
+                url: '/search',
+                controller: 'SearchCtrl as searchCtrl',
+                templateUrl: 'search/search.html'
             });
 
         $urlRouterProvider.otherwise('/');
 
+    })
+    .config(function(uiGmapGoogleMapApiProvider) {
+    
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyCaXBV3pnvGrnkQKrpOXSXboD6iuyb0_Qk',
+            v: '3.20',
+            libraries: 'weather,geometry,visualization'
+        });
+        
     })
     .constant('FirebaseUrl', 'https://psleapp.firebaseio.com/');

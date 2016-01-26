@@ -8,6 +8,8 @@ angular.module('psleApp')
     .controller('HomeCtrl', function (Auth, $state) {
         
         var homeCtrl = this;
+    
+        homeCtrl.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
         
         
         /**

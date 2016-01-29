@@ -1,16 +1,55 @@
-<div class="logo"></div>
+<div class="pace-top  pace-done">
+    <div class="pace pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in hide"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
 
-<div class="login-block">
-    
-    <form ng-submit="authCtrl.login()">
-        
-        <h1>Login</h1>
-        <input ng-model="authCtrl.user.email" type="email" value="" placeholder="Email" id="username"/>
-        <input ng-model="authCtrl.user.password" type="password" value="" placeholder="Password" id="password" />
-        <div ng-show="authCtrl.error" class="error">{{ authCtrl.error.message }}</div>
-        <div class="link"><a ui-sref="register">Don't have an account? Click here to register</a></div>
-        <button type="submit">Login</button>
-        
-    </form>
-    
+    <div class="login-cover">
+        <div class="login-cover-image"><img src="img/work.jpg" data-id="login-cover-image"></div>
+        <div class="login-cover-bg"></div>
+    </div>
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade in">
+        <!-- begin login -->
+        <div class="login login-v2 animated fadeIn" data-pageload-addclass="animated fadeIn">
+            <!-- begin brand -->
+            <div class="login-header">
+                <div class="brand">
+                    <span class="logo"></span> PSLE APP
+                </div>
+            </div>
+            <!-- end brand -->
+            <div class="login-content">
+                <form ng-submit="authCtrl.login()" class="margin-bottom-0">
+                    <div class="form-group m-b-20">
+                        <input ng-model="authCtrl.user.email" type="email" class="form-control input-lg" placeholder="Email Address">
+                    </div>
+                    <div class="form-group m-b-20">
+                        <input ng-model="authCtrl.user.password" type="password" class="form-control input-lg" placeholder="Password">
+                    </div>
+                    <div class="checkbox m-b-20">
+                        <label>
+                            <input type="checkbox"> Remember Me
+                        </label>
+                    </div>
+
+                    <div ng-show="authCtrl.error" class="error">{{ authCtrl.error.message }}</div>
+
+                    <div class="login-buttons">
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                    </div>
+                    <div class="m-t-20">
+                        Not a member yet? Click <a ui-sref="register">here</a> to register.
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end login -->
+    </div>
+    <!-- end page container -->
 </div>

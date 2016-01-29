@@ -3,5 +3,21 @@
     
     <a ng-click="homeCtrl.logout()">Logout</a>
     
-    <ui-gmap-google-map center='searchCtrl.map.center' zoom='searchCtrl.map.zoom'></ui-gmap-google-map>
+    <ui-gmap-google-map center='searchCtrl.map.center' zoom='searchCtrl.map.zoom'>
+    
+        <!--<ui-gmap-marker
+                idKey="searchCtrl.marker.id"
+                coords="searchCtrl.marker.coords"
+                options="searchCtrl.marker.options"
+                >
+        </ui-gmap-marker>-->
+        
+        <ui-gmap-markers models="searchCtrl.randomMarkers" coords="'self'" icon='{url: "/public/img/school_icon.png"}' click="searchCtrl.clicking()">
+            <ui-gmap-windows show="'true'" doRebuildAll="true">
+                <div ng-non-bindable>Nan Hua Primary School<br/>West</div>
+            </ui-gmap-windows>
+        </ui-gmap-markers>
+        
+    </ui-gmap-google-map>
+    
 </h1>

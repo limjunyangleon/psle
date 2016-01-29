@@ -1,90 +1,86 @@
-Welcome! Please fill in the following to complete your registration.<br/>
-
-<a ui-sref="home">Skip for now, I will fill in later.</a><br/><br/>
-
-<form>
-    <div class="form-group">
-        <label>What Primary School is your child currently in?</label>
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.school" name="school"
-            required>
-        </select>
+<div class="pace-top bg-white  pace-done">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
     </div>
-    
-    <div class="form-group">
-        <label>What year is your child currently in?</label>
-        <select class="form-control"
-            ng-options="year for year in profileCtrl.listOfPrimaryYears"
-            ng-model="fields.year" name="year"
-            required>
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <label>What year is your child's gender?</label>
-        <select class="form-control"
-            ng-options="gender for gender in profileCtrl.listOfGenders"
-            ng-model="fields.gender" name="gender"
-            required>
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <label>Rank the primary schools of your preference</label>
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.choiceOne" name="choiceOne"
-            required>
-        </select>
-        
-        <br/>
-        
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.choiceTwo" name="choiceTwo"
-            required>
-        </select>
-        
-        <br/>
-        
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.choiceThree" name="choiceThree"
-            required>
-        </select>
-        
-        <br/>
-        
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.choiceFour" name="choiceFour"
-            required>
-        </select>
-        
-        <br/>
-        
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.choiceFive" name="choiceFive"
-            required>
-        </select>
-        
-        <br/>
-        
-        <select class="form-control"
-            ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-            ng-model="fields.choiceSix" name="choiceSix"
-            required>
-        </select>
-    </div>
-    
-    
-    <button type="submit" ui-sref="home">
-        Submit
-    </button>
-    
-    
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in hide"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
 
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade in">
+        <!-- begin register -->
+        <div class="register register-with-news-feed">
+            <!-- begin news-feed -->
+            <div class="news-feed">
+                <div class="news-image" id="register-image">
+                    <img src="img/girl.jpg" alt="">
+                </div>
+            </div>
+            <!-- end news-feed -->
+            <!-- begin right-content -->
+            <div class="right-content">
+                <!-- begin register-header -->
+                <h1 class="register-header">
+		                    Questions
+		                    <small>Answer these questions to help us recommend the most suitable secondary school for you</small>
+		                </h1>
+                <!-- end register-header -->
+                <!-- begin register-content -->
+                <div class="register-content">
+                    <form action="index.html" method="POST" class="margin-bottom-0">
+                        <div class="form-group">
+                            <label>What Primary School is your child currently in?</label>
+                            <select class="form-control"
+                                ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
+                                ng-model="fields.school" name="school"
+                                required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>What year is your child currently in?</label>
+                            <select class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>What year is your child's gender?</label>
+                            <select class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Rank the top 3 primary schools of your preference</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <select class="form-control" placeholder="Last name">
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-control">
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>What are your top 3 considerations when choosing a school?</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                        </div>
 
-</form>
+                        <div>
+                            <button type="submit" class="btn btn-success pull-right">Submit</button>
+                            <button ui-sref="home" type="submit" class="btn btn-inverse">Skip Questions</button>
+
+                        </div>
+                    </form>
+                </div>
+                <!-- end register-content -->
+            </div>
+            <!-- end right-content -->
+        </div>
+        <!-- end register -->
+    </div>

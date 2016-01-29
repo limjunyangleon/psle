@@ -1,16 +1,73 @@
-<div class="logo"></div>
+<div class="pace-top bg-white  pace-done">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in hide"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
 
-<div class="login-block">
-    
-    <form ng-submit="authCtrl.register()">
-        
-        <h1>Register</h1>
-        <input ng-model="authCtrl.user.email" type="text" value="" placeholder="Email" id="username" />
-        <input ng-model="authCtrl.user.password" type="password" value="" placeholder="Password" id="password" />
-        <div ng-show="authCtrl.error" class="error">{{ authCtrl.error.message }}</div>
-        <div class="link"><a ui-sref="login">Return to login page</a></div>
-        <button type="submit">Create Account</button>
-        
-    </form>
-    
-</div>
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade in">
+        <!-- begin register -->
+        <div class="register register-with-news-feed">
+            <!-- begin news-feed -->
+            <div class="news-feed">
+                <div class="news-image" id="register-image">
+                    <img src="img/desk.jpg" alt="">
+                </div>
+            </div>
+            <!-- end news-feed -->
+            <!-- begin right-content -->
+            <div class="right-content">
+                <!-- begin register-header -->
+                <h1 class="register-header">
+		                    Sign Up
+		                </h1>
+                <!-- end register-header -->
+                <!-- begin register-content -->
+                <div class="register-content">
+                    <form ng-submit="authCtrl.register()" class="margin-bottom-0">
+                        <label class="control-label">Name</label>
+                        <div class="row row-space-10">
+                            <div class="col-md-6 m-b-15">
+                                <input type="text" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col-md-6 m-b-15">
+                                <input type="text" class="form-control" placeholder="Last name">
+                            </div>
+                        </div>
+                        <label class="control-label">Email</label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input ng-model="authCtrl.user.email" type="text" class="form-control" placeholder="Email address">
+                            </div>
+                        </div>
+                        <label class="control-label">Password</label>
+                        <div class="row m-b-15">
+                            <div class="col-md-12">
+                                <input ng-model="authCtrl.user.password" type="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="checkbox m-b-30">
+                            <label>
+                                <input ng-model="termsAndConditions" type="checkbox"> By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Data Policy</a>, including our <a href="#">Cookie Use</a>.
+                            </label>
+                        </div>
+                        
+                        <div ng-show="authCtrl.error" class="error">{{ authCtrl.error.message }}</div>
+                        
+                        <div class="register-buttons">
+                            <button ng-disabled="!termsAndConditions" type="submit" class="btn btn-success btn-block btn-lg">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- end register-content -->
+            </div>
+            <!-- end right-content -->
+        </div>
+        <!-- end register -->
+    </div>

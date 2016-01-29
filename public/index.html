@@ -1,13 +1,21 @@
 <html ng-app="psleApp">
 
     <head>
-
+        <meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+        
         <!-- css dependencies -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+		<link href="css/style-responsive.css" rel="stylesheet">
+		<link href="css/default.css" rel="stylesheet" id="theme">
 
         <!-- javascript dependencies -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="js/loadash.js"></script>
         <script src="https://code.angularjs.org/1.4.8/angular.min.js"></script>
         <script src="js/angular-simple-logger.min.js"></script>
@@ -16,7 +24,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
-
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
 
         <!-- angular dependencies -->
         <script src="app.js"></script>
@@ -29,9 +37,7 @@
     </head>
 
     <body>
-        
         <ui-view></ui-view>
-    
-    </body>
+		</body>
 
 </html>

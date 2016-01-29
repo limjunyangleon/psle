@@ -9,6 +9,15 @@ angular.module('psleApp')
         
         var profileCtrl = this;
     
+    
+        //profileCtrl.profile = profile;
+        
+        profileCtrl.updateProfile = function() {
+            profileCtrl.profile.$save().then(function() {
+                $state.go('home');
+            });
+        };
+    
         
         profileCtrl.listOfPrimaryYears = [
             'Primary 1',
@@ -33,8 +42,9 @@ angular.module('psleApp')
     
         profileCtrl.getListOfPrimarySchools = function() {
          
-            $http.get('https://data.gov.sg/api/action/datastore_search?resource_id=a618503b-7f7f-4e01-bade-1a108ca604f5')
+            $http.get("https://data.gov.sg/api/3/action/resource_show?id=dcd83e83-c956-4749-ae4c-96d4486d0925")
                 .then(function(result) {
+                    console.log(result);
                     profileCtrl.listOfPrimarySchools = result.data.result.records;
                 }, function(error) {
                     console.log("Error getting list of primay schools");

@@ -5,7 +5,7 @@
 
 angular.module('psleApp')
 
-    .controller('AuthCtrl', function (Auth, $state) {
+    .controller('AuthCtrl', function (Auth, $state, profile, $firebaseArray, FirebaseUrl) {
         
         var authCtrl = this;
     
@@ -24,7 +24,7 @@ angular.module('psleApp')
         authCtrl.login = function() {
             Auth.$authWithPassword(authCtrl.user)
                 .then(function (auth) {
-                    $state.go('home');
+                    $state.go('profile');
                 }, function (error) {
                     authCtrl.error = error;
                 });
@@ -37,14 +37,31 @@ angular.module('psleApp')
          */
     
     
-        authCtrl.register = function() {
-            Auth.$createUser(authCtrl.user)
-                .then(function (user) {
-                    authCtrl.login();
-                }, function (error) {
-                    authCtrl.error = error;
-                });
-        };
+        authCtrl.register = function(isValid) {
+            
+            if(isValid) {
+                
+                // registration form is valid
+                Auth.$createUser(authCtrl.user)
+                    .then(function (user) {
+                        var usersRef = new Firebase(FirebaseUrl + 'users');
+                        var users = new $firebaseArray(usersRef);
+
+                        users.$add({
+                            email: authCtrl.user.email,
+                            firstName: authCtrl.user.firstName,
+                            lastName: authCtrl.user.lastName
+                        
+                        }).then(function() {
+                            authCtrl.login();
+                        });
+                
+                    }, function (error) {
+                        authCtrl.error = error;
+                    });
+                
+            }
+        };    
     
     
     });

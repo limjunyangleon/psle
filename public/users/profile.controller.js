@@ -5,19 +5,19 @@
 
 angular.module('psleApp')
 
-    .controller('ProfileCtrl', function (Auth, $state, $http) {
+    .controller('ProfileCtrl', function (Auth, $state, $http, $firebaseArray, FirebaseUrl) {
         
         var profileCtrl = this;
     
     
         //profileCtrl.profile = profile;
-        
-        profileCtrl.updateProfile = function() {
-            profileCtrl.profile.$save().then(function() {
-                $state.go('home');
-            });
-        };
+
     
+        /**
+         * @name: listOfPrimaryYears
+         * @type: variable
+         * @description: provides a list of all the primary years
+         */
         
         profileCtrl.listOfPrimaryYears = [
             'Primary 1',
@@ -28,6 +28,13 @@ angular.module('psleApp')
             'Primary 6',
         ];
         
+    
+        /**
+         * @name: listOfGenders
+         * @type: variable
+         * @description: provides a list of all the genders
+         */
+    
         profileCtrl.listOfGenders = [
             'Male',
             'Female'
@@ -35,24 +42,63 @@ angular.module('psleApp')
         
     
         /**
-         * @name: getListOfPrimarySchools
-         * @description: get a list of all the primary schools in singapore
+         * @name: listOfPriSchools
+         * @type: variable
+         * @description: provides a list of all the primary schools in singapore
          */
-    
-    
-        profileCtrl.getListOfPrimarySchools = function() {
-         
-            $http.get("https://data.gov.sg/api/3/action/resource_show?id=dcd83e83-c956-4749-ae4c-96d4486d0925")
-                .then(function(result) {
-                    console.log(result);
-                    profileCtrl.listOfPrimarySchools = result.data.result.records;
-                }, function(error) {
-                    console.log("Error getting list of primay schools");
-                });
-            
-        }
         
-        profileCtrl.getListOfPrimarySchools();
+        var priSchoolArray = $firebaseArray(new Firebase(FirebaseUrl + '1'));
+        
+        priSchoolArray.$loaded(function(results) {
+            
+            profileCtrl.listOfPriSchools = results;
+        });
+    
+    
+        /**
+         * @name: listOfSecSchools
+         * @type: variable
+         * @description: provides a list of all the secondary schools in singapore
+         */
+        
+        var secSchoolArray = $firebaseArray(new Firebase(FirebaseUrl + '0'));
+        
+        secSchoolArray.$loaded(function(results) {
+            
+            profileCtrl.listOfSecSchools = results;
+        });
+    
+    
+        /**
+         * @name: updateProfile
+         * @type: function
+         * @description: update the user profile
+         */    
+    
+        profileCtrl.updateProfile = function() {
+            profileCtrl.profile.$save().then(function() {
+                $state.go('home');
+            });
+        };
+    
+    
+        /**
+         * @name: submitProfile
+         * @type: function
+         * @description: submit the user profile
+         */    
+    
+        profileCtrl.submitProfile = function(isValid) {
+            
+            if(isValid) {
+                //the profile form is valid
+                $state.go('home');
+            }
+            
+            /*profileCtrl.profile.$save().then(function() {
+                $state.go('home');
+            });*/
+        };
     
     
     });

@@ -4,6 +4,7 @@
  */
 
 angular.module('psleApp')
+
     .factory('Profile', function($firebaseArray, $firebaseObject, FirebaseUrl) {
         
         var usersRef = new Firebase(FirebaseUrl + 'users');
@@ -11,7 +12,7 @@ angular.module('psleApp')
     
         var Users = {
             getProfile: function(uid) {
-                return $firebaseObject(usersRef.child(uid));   
+                return $firebaseObject(usersRef.child(email));
             },
             
             getDisplayName: function(uid) {
@@ -19,7 +20,8 @@ angular.module('psleApp')
             },
             
             all: users
-        };
+        }
     
         return Users;
+    
     });

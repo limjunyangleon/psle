@@ -29,26 +29,50 @@
                 <!-- end register-header -->
                 <!-- begin register-content -->
                 <div class="register-content">
-                    <form ng-submit="authCtrl.register()" class="margin-bottom-0">
+                    <form ng-submit="authCtrl.register(registerForm.$valid)" name="registerForm" class="margin-bottom-0" novalidate>
                         <label class="control-label">Name</label>
                         <div class="row row-space-10">
                             <div class="col-md-6 m-b-15">
-                                <input type="text" class="form-control" placeholder="First name">
+                                <div ng-class="{'has-error': registerForm.firstName.$invalid && (registerForm.firstName.$touched || registerForm.$submitted)}">
+                                    <input ng-model="authCtrl.user.firstName" type="text" name="firstName" class="form-control" placeholder="First name" required>
+                                    <div ng-show="registerForm.firstName.$invalid && (registerForm.firstName.$touched || registerForm.$submitted)"
+                                         class="help-block">
+                                        Please enter your first name
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-6 m-b-15">
-                                <input type="text" class="form-control" placeholder="Last name">
+                                <div ng-class="{'has-error': registerForm.lastName.$invalid && (registerForm.lastName.$touched || registerForm.$submitted)}">
+                                    <input ng-model="authCtrl.user.lastName" type="text" name="lastName" class="form-control" placeholder="Last name" required>
+                                    <div ng-show="registerForm.lastName.$invalid && (registerForm.lastName.$touched || registerForm.$submitted)"
+                                         class="help-block">
+                                        Please enter your last name
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <label class="control-label">Email</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input ng-model="authCtrl.user.email" type="text" class="form-control" placeholder="Email address">
+                                <div ng-class="{'has-error': registerForm.email.$invalid && (registerForm.email.$touched || registerForm.$submitted)}">
+                                    <input ng-model="authCtrl.user.email" type="email" name="email" class="form-control" placeholder="Email address" required>
+                                    <div ng-show="registerForm.email.$invalid && (registerForm.email.$touched || registerForm.$submitted)"
+                                         class="help-block">
+                                        Please enter a valid email address
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <label class="control-label">Password</label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input ng-model="authCtrl.user.password" type="password" class="form-control" placeholder="Password">
+                                <div ng-class="{'has-error': registerForm.password.$invalid && (registerForm.password.$touched || registerForm.$submitted)}">
+                                    <input ng-model="authCtrl.user.password" type="password" name="password" class="form-control" placeholder="Password" required>
+                                    <div ng-show="registerForm.password.$invalid && (registerForm.password.$touched || registerForm.$submitted)"
+                                         class="help-block">
+                                        Please enter your password
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

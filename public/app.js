@@ -16,29 +16,61 @@ angular.module('psleApp', [
                 controller: 'AuthCtrl as authCtrl',
                 templateUrl: 'auth/login.html',
                 resolve: {
-                    requiredNoAuth: function($state, Auth) {
+                    requiredNoAuth: function ($state, Auth) {
                         return Auth.$requireAuth().then(function (auth) {
-                            $state.go('home');
-                        }, function(error) {
+                            $state.go('profile');
+                        }, function (error) {
                             return;
                         });
+                    },
+                    profile: function(Profile) {
+                        return Profile;   
                     }
                 }
             })
             .state('register', {
                 url: '/register',
                 controller: 'AuthCtrl as authCtrl',
-                templateUrl: 'auth/register.html'
+                templateUrl: 'auth/register.html',
+                resolve: {
+                    profile: function(Profile) {
+                        return Profile;   
+                    }
+                }
             })
             .state('home', {
                 url: '/home',
                 controller: 'HomeCtrl as homeCtrl',
-                templateUrl: 'home/home.html'
+                templateUrl: 'home/home.html',
+                resolve: {
+                    requireAuth: function($state, Auth){
+                        return Auth.$requireAuth().catch(function() {
+                            $state.go('login');
+                        });
+                    }
+                }
             })
             .state('profile', {
                 url: '/profile',
                 controller: 'ProfileCtrl as profileCtrl',
-                templateUrl: 'users/profile.html'
+                templateUrl: 'users/profile.html',
+                resolve: {
+                    profile: function ($state, Auth, Profile) {
+                        return Auth.$requireAuth().then(function (auth) {
+                            
+                            return Profile.getProfile(auth.uid).$loaded().then(function (profile) {
+                                if (profile.displayName) {
+                                    $state.go('home');
+                                } else {
+                                    return;
+                                }
+                            });
+
+                        }, function (error) {
+                            $state.go('login');
+                        });
+                    }
+                }
             })
             .state('search', {
                 url: '/search',
@@ -49,13 +81,13 @@ angular.module('psleApp', [
         $urlRouterProvider.otherwise('/');
 
     })
-    .config(function(uiGmapGoogleMapApiProvider) {
-    
+    .config(function (uiGmapGoogleMapApiProvider) {
+
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyCaXBV3pnvGrnkQKrpOXSXboD6iuyb0_Qk',
             v: '3.20',
             libraries: 'weather,geometry,visualization'
         });
-        
+
     })
     .constant('FirebaseUrl', 'https://psleapp.firebaseio.com/');

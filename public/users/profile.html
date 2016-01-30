@@ -30,39 +30,107 @@
                 <!-- end register-header -->
                 <!-- begin register-content -->
                 <div class="register-content">
-                    <form action="index.html" method="POST" class="margin-bottom-0">
+                    <form ng-submit="profileCtrl.submitProfile(profileForm.$valid)" name="profileForm" class="margin-bottom-0" novalidate>
                         <div class="form-group">
                             <label>What Primary School is your child currently in?</label>
-                            <select class="form-control"
-                                ng-options="sch.school for sch in profileCtrl.listOfPrimarySchools"
-                                ng-model="fields.school" name="school"
-                                required>
-                            </select>
+                            
+                            <div ng-class="{'has-error': profileForm.school.$invalid && (profileForm.school.$touched || profileForm.$submitted)}">
+                                <select class="form-control"
+                                    ng-options="sch.school for sch in profileCtrl.listOfPriSchools | orderBy:'school'"
+                                    ng-model="fields.school" 
+                                    name="school"
+                                    ng-disabled="profileCtrl.listOfPriSchools.length == null"
+                                    required>
+                                </select>
+                            
+                                <div ng-show="profileForm.school.$invalid && (profileForm.school.$touched || profileForm.$submitted)"
+                                     class="help-block">
+                                    Please select a primary school
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>What year is your child currently in?</label>
-                            <select class="form-control">
-                            </select>
+                            
+                            <div ng-class="{'has-error': profileForm.year.$invalid && (profileForm.year.$touched || profileForm.$submitted)}">
+                                <select class="form-control"
+                                    ng-options="year for year in profileCtrl.listOfPrimaryYears"
+                                    ng-model="fields.year" 
+                                    name="year"
+                                    required>
+                                </select>
+                                <div ng-show="profileForm.year.$invalid && (profileForm.year.$touched || profileForm.$submitted)"
+                                     class="help-block">
+                                    Please select a year
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>What year is your child's gender?</label>
-                            <select class="form-control">
-                            </select>
+                            
+                            <div ng-class="{'has-error': profileForm.gender.$invalid && (profileForm.gender.$touched || profileForm.$submitted)}">
+                                <select class="form-control"
+                                    ng-options="gender for gender in profileCtrl.listOfGenders"
+                                    ng-model="fields.gender" 
+                                    name="gender"
+                                    required>
+                                </select>
+                                <div ng-show="profileForm.gender.$invalid && (profileForm.gender.$touched || profileForm.$submitted)"
+                                    class="help-block">
+                                    Please select a gender
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Rank the top 3 primary schools of your preference</label>
+                            <label>Rank the top 3 secondary schools of your preference</label>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <select class="form-control" placeholder="Last name">
-                                    </select>
+                                    <div ng-class="{'has-error': profileForm.firstChoice.$invalid && (profileForm.firstChoice.$touched || profileForm.$submitted)}">
+                                        <select class="form-control"
+                                            ng-options="sch.school for sch in profileCtrl.listOfSecSchools | orderBy:'school'"
+                                            ng-model="fields.firstChoice"
+                                            name="firstChoice"
+                                            ng-disabled="profileCtrl.listOfSecSchools.length == null"
+                                            required>
+                                            <option value="" disabled selected>First Choice</option>
+                                        </select>
+                                        <div ng-show="profileForm.firstChoice.$invalid && (profileForm.firstChoice.$touched || profileForm.$submitted)"
+                                            class="help-block">
+                                            Please select a choice
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <select class="form-control">
-                                    </select>
+                                    <div ng-class="{'has-error': profileForm.secondChoice.$invalid && (profileForm.secondChoice.$touched || profileForm.$submitted)}">
+                                        <select class="form-control"
+                                            ng-options="sch.school for sch in profileCtrl.listOfSecSchools | orderBy:'school'"
+                                            ng-model="fields.secondChoice" 
+                                            name="secondChoice"
+                                            ng-disabled="profileCtrl.listOfSecSchools.length == null"
+                                            required>
+                                            <option value="" disabled selected>Second Choice</option>
+                                        </select>
+                                        <div ng-show="profileForm.secondChoice.$invalid && (profileForm.secondChoice.$touched || profileForm.$submitted)"
+                                            class="help-block">
+                                            Please select a choice
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <select class="form-control">
-                                    </select>
+                                    <div ng-class="{'has-error': profileForm.thirdChoice.$invalid && (profileForm.thirdChoice.$touched || profileForm.$submitted)}">
+                                        <select class="form-control"
+                                            ng-options="sch.school for sch in profileCtrl.listOfSecSchools | orderBy:'school'"
+                                            ng-model="fields.thirdChoice" 
+                                            name="thirdChoice"
+                                            ng-disabled="profileCtrl.listOfSecSchools.length == null"
+                                            required>
+                                            <option value="" disabled selected>Third Choice</option>
+                                        </select>
+                                        <div ng-show="profileForm.thirdChoice.$invalid && (profileForm.thirdChoice.$touched || profileForm.$submitted)"
+                                            class="help-block">
+                                            Please select a choice
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

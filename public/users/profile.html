@@ -37,7 +37,7 @@
                             <div ng-class="{'has-error': profileForm.school.$invalid && (profileForm.school.$touched || profileForm.$submitted)}">
                                 <select class="form-control"
                                     ng-options="sch.school for sch in profileCtrl.listOfPriSchools | orderBy:'school'"
-                                    ng-model="fields.school" 
+                                    ng-model="profileCtrl.profile.school" 
                                     name="school"
                                     ng-disabled="profileCtrl.listOfPriSchools.length == null"
                                     required>
@@ -55,7 +55,7 @@
                             <div ng-class="{'has-error': profileForm.year.$invalid && (profileForm.year.$touched || profileForm.$submitted)}">
                                 <select class="form-control"
                                     ng-options="year for year in profileCtrl.listOfPrimaryYears"
-                                    ng-model="fields.year" 
+                                    ng-model="profileCtrl.profile.year" 
                                     name="year"
                                     required>
                                 </select>
@@ -71,7 +71,7 @@
                             <div ng-class="{'has-error': profileForm.gender.$invalid && (profileForm.gender.$touched || profileForm.$submitted)}">
                                 <select class="form-control"
                                     ng-options="gender for gender in profileCtrl.listOfGenders"
-                                    ng-model="fields.gender" 
+                                    ng-model="profileCtrl.profile.gender" 
                                     name="gender"
                                     required>
                                 </select>
@@ -88,7 +88,7 @@
                                     <div ng-class="{'has-error': profileForm.firstChoice.$invalid && (profileForm.firstChoice.$touched || profileForm.$submitted)}">
                                         <select class="form-control"
                                             ng-options="sch.school for sch in profileCtrl.listOfSecSchools | orderBy:'school'"
-                                            ng-model="fields.firstChoice"
+                                            ng-model="profileCtrl.profile.firstChoice"
                                             name="firstChoice"
                                             ng-disabled="profileCtrl.listOfSecSchools.length == null"
                                             required>
@@ -104,7 +104,7 @@
                                     <div ng-class="{'has-error': profileForm.secondChoice.$invalid && (profileForm.secondChoice.$touched || profileForm.$submitted)}">
                                         <select class="form-control"
                                             ng-options="sch.school for sch in profileCtrl.listOfSecSchools | orderBy:'school'"
-                                            ng-model="fields.secondChoice" 
+                                            ng-model="profileCtrl.profile.secondChoice" 
                                             name="secondChoice"
                                             ng-disabled="profileCtrl.listOfSecSchools.length == null"
                                             required>
@@ -120,7 +120,7 @@
                                     <div ng-class="{'has-error': profileForm.thirdChoice.$invalid && (profileForm.thirdChoice.$touched || profileForm.$submitted)}">
                                         <select class="form-control"
                                             ng-options="sch.school for sch in profileCtrl.listOfSecSchools | orderBy:'school'"
-                                            ng-model="fields.thirdChoice" 
+                                            ng-model="profileCtrl.profile.thirdChoice"
                                             name="thirdChoice"
                                             ng-disabled="profileCtrl.listOfSecSchools.length == null"
                                             required>

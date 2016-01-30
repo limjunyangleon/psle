@@ -5,7 +5,7 @@
 
 angular.module('psleApp')
 
-    .controller('AuthCtrl', function (Auth, $state, profile, $firebaseArray, FirebaseUrl) {
+    .controller('AuthCtrl', function (Auth, $state, $firebaseArray, $firebaseObject, FirebaseUrl) {
         
         var authCtrl = this;
     
@@ -44,15 +44,15 @@ angular.module('psleApp')
                 // registration form is valid
                 Auth.$createUser(authCtrl.user)
                     .then(function (user) {
+                    
                         var usersRef = new Firebase(FirebaseUrl + 'users');
-                        var users = new $firebaseArray(usersRef);
-
-                        users.$add({
-                            email: authCtrl.user.email,
-                            firstName: authCtrl.user.firstName,
-                            lastName: authCtrl.user.lastName
-                        
-                        }).then(function() {
+                        var savedProfile = $firebaseObject(usersRef.child(user.uid));
+                    
+                        savedProfile.email = authCtrl.user.email;
+                        savedProfile.firstName = authCtrl.user.firstName;
+                        savedProfile.lastName = authCtrl.user.lastName;
+                                        
+                        savedProfile.$save().then(function() {
                             authCtrl.login();
                         });
                 

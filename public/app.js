@@ -22,21 +22,13 @@ angular.module('psleApp', [
                         }, function (error) {
                             return;
                         });
-                    },
-                    profile: function(Profile) {
-                        return Profile;   
                     }
                 }
             })
             .state('register', {
                 url: '/register',
                 controller: 'AuthCtrl as authCtrl',
-                templateUrl: 'auth/register.html',
-                resolve: {
-                    profile: function(Profile) {
-                        return Profile;   
-                    }
-                }
+                templateUrl: 'auth/register.html'
             })
             .state('home', {
                 url: '/home',
@@ -56,13 +48,15 @@ angular.module('psleApp', [
                 templateUrl: 'users/profile.html',
                 resolve: {
                     profile: function ($state, Auth, Profile) {
+                        
                         return Auth.$requireAuth().then(function (auth) {
                             
                             return Profile.getProfile(auth.uid).$loaded().then(function (profile) {
-                                if (profile.displayName) {
+                                
+                                if (profile.profileCompleted) {
                                     $state.go('home');
                                 } else {
-                                    return;
+                                    return profile;
                                 }
                             });
 

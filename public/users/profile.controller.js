@@ -5,12 +5,11 @@
 
 angular.module('psleApp')
 
-    .controller('ProfileCtrl', function (Auth, $state, $http, $firebaseArray, FirebaseUrl) {
+    .controller('ProfileCtrl', function (Auth, $state, profile, $firebaseArray, FirebaseUrl) {
         
         var profileCtrl = this;
     
-    
-        //profileCtrl.profile = profile;
+        profileCtrl.profile = profile;
 
     
         /**
@@ -91,13 +90,13 @@ angular.module('psleApp')
         profileCtrl.submitProfile = function(isValid) {
             
             if(isValid) {
+                
                 //the profile form is valid
-                $state.go('home');
+                profileCtrl.profile.profileCompleted = true;
+                profileCtrl.profile.$save().then(function () {
+                    $state.go('home');
+                });     
             }
-            
-            /*profileCtrl.profile.$save().then(function() {
-                $state.go('home');
-            });*/
         };
     
     

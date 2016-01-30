@@ -12,7 +12,7 @@ angular.module('psleApp')
     
         var Users = {
             getProfile: function(uid) {
-                return $firebaseObject(usersRef.child(email));
+                return $firebaseObject(usersRef.child(uid));
             },
             
             getDisplayName: function(uid) {

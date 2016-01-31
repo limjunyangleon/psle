@@ -85,7 +85,8 @@
                         <div ng-show="authCtrl.error" class="error">{{ authCtrl.error.message }}</div>
                         
                         <div class="register-buttons">
-                            <button ng-disabled="!termsAndConditions" type="submit" class="btn btn-success btn-block btn-lg">Sign Up</button>
+                            <button ng-disabled="!termsAndConditions" type="submit" class="btn btn-success pull-right">Sign Up</button>
+                            <button ui-sref="login" type="button" class="btn btn-inverse">Back to Login</button>
                         </div>
                     </form>
                 </div>

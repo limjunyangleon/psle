@@ -51,6 +51,7 @@ angular.module('psleApp')
                         savedProfile.email = authCtrl.user.email;
                         savedProfile.firstName = authCtrl.user.firstName;
                         savedProfile.lastName = authCtrl.user.lastName;
+                        savedProfile.currentQuestion = 0;
                                         
                         savedProfile.$save().then(function() {
                             authCtrl.login();

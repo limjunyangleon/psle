@@ -43,12 +43,20 @@
                         <div class="panel-heading">
                             <h class="panel-title">Questions</h4>
                         </div>
-                        <div class="panel-body">
+                        <form class="panel-body" ng-submit="homeCtrl.submitAnswer()" novalidate>
                             <p>
-                                Some Question
+                                {{homeCtrl.qns.question}}
                             </p>
+                            <div ng-repeat="choice in homeCtrl.qns.choices">
+                                <label>
+                                <input type="radio" ng-model="homeCtrl.answer" value="{{choice}}"
+                                              name="answer"
+                                              ng-required="">
+                                    {{choice}}
+                                </label>
+                            </div>
                             <button class="btn btn-sm btn-success m-r-5 pull-right">Submit</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

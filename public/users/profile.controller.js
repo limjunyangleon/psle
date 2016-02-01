@@ -95,7 +95,7 @@ angular.module('psleApp')
                 profileCtrl.profile.profileCompleted = true;
                 profileCtrl.profile.$save().then(function () {
                     $state.go('home');
-                });     
+                });
             }
         };
     

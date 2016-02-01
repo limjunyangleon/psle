@@ -35,8 +35,18 @@ angular.module('psleApp', [
                 controller: 'HomeCtrl as homeCtrl',
                 templateUrl: 'home/home.html',
                 resolve: {
-                    requireAuth: function($state, Auth){
+                    /*requireAuth: function($state, Auth){
                         return Auth.$requireAuth().catch(function() {
+                            $state.go('login');
+                        });
+                    },*/
+                    profile: function ($state, Auth, Profile) {
+                        
+                        return Auth.$requireAuth().then(function (auth) {
+                            
+                            return Profile.getProfile(auth.uid).$loaded();
+
+                        }, function (error) {
                             $state.go('login');
                         });
                     }

@@ -39,6 +39,22 @@ angular.module('psleApp')
             'Female'
         ]
         
+        
+        /**
+         * @name: listOfConsiderations
+         * @type: variable
+         * @description: provides a list of all the considerations when choosing a school
+         */
+    
+        profileCtrl.listOfConsiderations = [
+            "Compatibility of School with Child's Strength",
+            "CCA",
+            "Distance away from home",
+            "Good Academic Programmes",
+            "School Culture",
+            "School Reputation"
+        ];
+        
     
         /**
          * @name: listOfPriSchools

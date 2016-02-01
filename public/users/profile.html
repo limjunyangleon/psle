@@ -136,9 +136,54 @@
                         </div>
                         <div class="form-group">
                             <label>What are your top 3 considerations when choosing a school?</label>
-                            <textarea class="form-control" rows="5"></textarea>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div ng-class="{'has-error': profileForm.firstConsideration.$invalid && (profileForm.firstConsideration.$touched || profileForm.$submitted)}">
+                                        <select class="form-control"
+                                            ng-options="consideration for consideration in profileCtrl.listOfConsiderations"
+                                            ng-model="profileCtrl.profile.firstConsideration"
+                                            name="firstConsideration"
+                                            required>
+                                            <option value="" disabled selected>First Consideration</option>
+                                        </select>
+                                        <div ng-show="profileForm.firstConsideration.$invalid && (profileForm.firstConsideration.$touched || profileForm.$submitted)"
+                                            class="help-block">
+                                            Please select a choice
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div ng-class="{'has-error': profileForm.secondConsideration.$invalid && (profileForm.secondConsideration.$touched || profileForm.$submitted)}">
+                                        <select class="form-control"
+                                            ng-options="consideration for consideration in profileCtrl.listOfConsiderations"
+                                            ng-model="profileCtrl.profile.secondConsideration"
+                                            name="secondConsideration"
+                                            required>
+                                            <option value="" disabled selected>Second Consideration</option>
+                                        </select>
+                                        <div ng-show="profileForm.secondConsideration.$invalid && (profileForm.secondConsideration.$touched || profileForm.$submitted)"
+                                            class="help-block">
+                                            Please select a choice
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div ng-class="{'has-error': profileForm.thirdConsideration.$invalid && (profileForm.thirdConsideration.$touched || profileForm.$submitted)}">
+                                        <select class="form-control"
+                                            ng-options="consideration for consideration in profileCtrl.listOfConsiderations"
+                                            ng-model="profileCtrl.profile.thirdConsideration"
+                                            name="thirdConsideration"
+                                            required>
+                                            <option value="" disabled selected>Third Consideration</option>
+                                        </select>
+                                        <div ng-show="profileForm.thirdConsideration.$invalid && (profileForm.thirdConsideration.$touched || profileForm.$submitted)"
+                                            class="help-block">
+                                            Please select a choice
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                         <div>
                             <button type="submit" class="btn btn-success pull-right">Submit</button>
                             <button ui-sref="home" type="submit" class="btn btn-inverse">Skip Questions</button>

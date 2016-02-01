@@ -79,7 +79,26 @@ angular.module('psleApp', [
             .state('search', {
                 url: '/search',
                 controller: 'SearchCtrl as searchCtrl',
-                templateUrl: 'search/search.html'
+                templateUrl: 'search/search.html',
+                resolve: {
+                    requireAuth: function($state, Auth){
+                        return Auth.$requireAuth().catch(function() {
+                            $state.go('login');
+                        });
+                    }
+                }
+            })
+            .state('details', {
+                url: '/details',
+                controller: 'SearchCtrl as searchCtrl',
+                templateUrl: 'search/details.html',
+                resolve: {
+                    requireAuth: function($state, Auth){
+                        return Auth.$requireAuth().catch(function() {
+                            $state.go('login');
+                        });
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/');

@@ -41,7 +41,7 @@
                     <!-- end page-header -->
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
-                            <h class="panel-title">Questions</h4>
+                            <h class="panel-title">Your Daily Dosage of Questions - Please answer the following to help us understsand your child better!</h4>
                         </div>
                         <form class="panel-body" ng-submit="homeCtrl.submitAnswer()" novalidate>
                             <p>
@@ -55,7 +55,7 @@
                                     {{choice}}
                                 </label>
                             </div>
-                            <button class="btn btn-sm btn-success m-r-5 pull-right">Submit</button>
+                            <button class="btn btn-sm btn-success m-r-5 pull-right" ng-disabled="!homeCtrl.answer">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -65,25 +65,20 @@
                     <!-- begin panel -->
                     <div class="panel panel-info" data-sortable-id="ui-media-object-4">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Top 5 Schools</h4>
+                            <h4 class="panel-title">Compatibility of School with Child's Strength</h4>
                         </div>
                         <div class="panel-body">
                             <ul class="media-list media-list-with-divider">
                                 <!-- Start of listing of school details (this unit can be repeated)-->
-                                <li class="media media-sm">
+                                <li class="media media-sm" ng-repeat="sch in homeCtrl.compatibilityChildStrength">
                                     <div class="media-body">
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <h4 class="media-heading">School Name</h4>
+                                                <h5 class="media-heading">{{sch}}</h5>
                                             </div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-4">
-                                                <div type="button" class="btn btn-sm btn-inverse pull-right">View Details</div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 margin-top-10">
-                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+                                                <div type="button" class="btn btn-sm btn-inverse pull-right" ng-click="homeCtrl.promptAlert()">View Details</div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,25 +93,20 @@
                     <!-- begin panel -->
                     <div class="panel panel-info" data-sortable-id="ui-media-object-4">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Media List with Button</h4>
+                            <h4 class="panel-title">CCA</h4>
                         </div>
                         <div class="panel-body">
                             <ul class="media-list media-list-with-divider">
                                 <!-- Start of listing of school details (this unit can be repeated)-->
-                                <li class="media media-sm">
+                                <li class="media media-sm" ng-repeat="sch in homeCtrl.cca">
                                     <div class="media-body">
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <h4 class="media-heading">School Name</h4>
+                                                <h5 class="media-heading">{{sch}}</h5>
                                             </div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-4">
-                                                <div type="button" class="btn btn-sm btn-inverse pull-right">View Details</div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 margin-top-10">
-                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+                                                <div type="button" class="btn btn-sm btn-inverse pull-right" ng-click="homeCtrl.promptAlert()">View Details</div>
                                             </div>
                                         </div>
                                     </div>
@@ -131,25 +121,106 @@
                     <!-- begin panel -->
                     <div class="panel panel-info" data-sortable-id="ui-media-object-4">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Media List with Button</h4>
+                            <h4 class="panel-title">Distance away from home</h4>
                         </div>
                         <div class="panel-body">
                             <ul class="media-list media-list-with-divider">
                                 <!-- Start of listing of school details (this unit can be repeated)-->
-                                <li class="media media-sm">
+                                <li class="media media-sm" ng-repeat="sch in homeCtrl.distanceFromHome">
                                     <div class="media-body">
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <h4 class="media-heading">School Name</h4>
+                                                <h5 class="media-heading">{{sch}}</h5>
                                             </div>
                                             <div class="col-md-3"></div>
                                             <div class="col-md-4">
-                                                <div type="button" class="btn btn-sm btn-inverse pull-right">View Details</div>
+                                                <div type="button" class="btn btn-sm btn-inverse pull-right" ng-click="homeCtrl.promptAlert()">View Details</div>
                                             </div>
                                         </div>
+                                    </div>
+                                </li>
+                                <!-- End of listing of school -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- begin panel -->
+                    <div class="panel panel-info" data-sortable-id="ui-media-object-4">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Good Academic Programmes</h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="media-list media-list-with-divider">
+                                <!-- Start of listing of school details (this unit can be repeated)-->
+                                <li class="media media-sm" ng-repeat="sch in homeCtrl.acdemicProgrammes">
+                                    <div class="media-body">
                                         <div class="row">
-                                            <div class="col-md-12 margin-top-10">
-                                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+                                            <div class="col-md-5">
+                                                <h5 class="media-heading">{{sch}}</h5>
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-4">
+                                                <div type="button" class="btn btn-sm btn-inverse pull-right" ng-click="homeCtrl.promptAlert()">View Details</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- End of listing of school -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <div class="col-md-4">
+                    <!-- begin panel -->
+                    <div class="panel panel-info" data-sortable-id="ui-media-object-4">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">School Culture</h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="media-list media-list-with-divider">
+                                <!-- Start of listing of school details (this unit can be repeated)-->
+                                <li class="media media-sm" ng-repeat="sch in homeCtrl.schoolCulture">
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <h5 class="media-heading">{{sch}}</h5>
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-4">
+                                                <div type="button" class="btn btn-sm btn-inverse pull-right" ng-click="homeCtrl.promptAlert()">View Details</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- End of listing of school -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <div class="col-md-4">
+                    <!-- begin panel -->
+                    <div class="panel panel-info" data-sortable-id="ui-media-object-4">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">School Reputation</h4>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="media-list media-list-with-divider">
+                                <!-- Start of listing of school details (this unit can be repeated)-->
+                                <li class="media media-sm" ng-repeat="sch in homeCtrl.schoolReputation">
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <h5 class="media-heading">{{sch}}</h5>
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-4">
+                                                <div type="button" class="btn btn-sm btn-inverse pull-right" ng-click="homeCtrl.promptAlert()">View Details</div>
                                             </div>
                                         </div>
                                     </div>

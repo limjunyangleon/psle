@@ -50,24 +50,20 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Area of School</label>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control"
+                                    ng-options="area for area in searchCtrl.areaOfSchool"
+                                    ng-model="searchCtrl.area" 
+                                    name="area">
                             </select>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Rating of School</label>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control"
+                                    ng-options="rating for rating in searchCtrl.ratingsOfSchool"
+                                    ng-model="searchCtrl.rating" 
+                                    name="rating">
                             </select>
                         </div>
 
@@ -75,12 +71,10 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Entry Point Range</label>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control"
+                                    ng-options="range for range in searchCtrl.entryPointRange"
+                                    ng-model="searchCtrl.range" 
+                                    name="range">
                             </select>
                         </div>
 
@@ -88,28 +82,25 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Type of School</label>
-                            <select class="form-control">
-                                <option>Integrated Programme (IP) Schools</option>
-                                <option>Independent Schools</option>
-                                <option>Autonomous Schools</option>
-                                <option>Special Assistance Plan Schools</option>
+                            <select class="form-control"
+                                    ng-options="type for type in searchCtrl.typesOfSchool"
+                                    ng-model="searchCtrl.type" 
+                                    name="type">
                             </select>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="exampleInputEmail1">HMT Offered</label>
-                            <select class="form-control">
-                                <option>Higher Chinese Language</option>
-                                <option>Higher Malay Language</option>
-                                <option>Higher Tamil Language</option>
-                                <option>Chinese (Special Programme)</option>
-                                <option>Malay (Special Programme)</option>
+                            <select class="form-control"
+                                    ng-options="hmt for hmt in searchCtrl.hmtOffered"
+                                    ng-model="searchCtrl.hmt" 
+                                    name="hmt">
                             </select>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button id="search-button" type="submit" class="btn btn-sm btn-success">Submit</button>
+                        <button id="search-button" type="submit" class="btn btn-sm btn-success" ng-click="searchCtrl.promptAlert()">Submit</button>
                     </div>
                 </form>
             </div>
@@ -124,7 +115,10 @@
                                 <div class="col-md-6">
                                     <!-- Map can be inserted here-->
                                     <ui-gmap-google-map center='searchCtrl.map.center' zoom='searchCtrl.map.zoom'>
-                                        <ui-gmap-markers models="searchCtrl.randomMarkers" coords="'self'" icon='{url: "/public/img/school_icon.png"}' click="searchCtrl.clicking()">
+                                        <ui-gmap-markers models="searchCtrl.randomMarkers" coords="'self'" icon='{url: "/public/img/school_icon.png"}'>
+                                            <ui-gmap-windows show="'{{showMarker}}'" doRebuildAll="true">
+                                                <div ng-non-bindable>{{sch}}</div>
+                                            </ui-gmap-windows> 
                                         </ui-gmap-markers>
 
                                     </ui-gmap-google-map>                   
@@ -132,11 +126,11 @@
                                 <div class="col-md-6">
                                     <ul id="search-school-list" class="media-list media-list-with-divider">
                                         <!-- Start of List of School (This unit can be repeated) -->
-                                        <li class="media media-sm">
+                                        <li class="media media-sm" ng-repeat="sch in searchCtrl.listOfSecSchools | orderBy:'school'">
                                             <div class="media-body">
                                                 <div class="row">
                                                     <div class="col-md-8">
-                                                        <h4 class="media-heading">Anglo Chinese Institution</h4>
+                                                        <h4 class="media-heading">{{sch.school}}</h4>
                                                         <div class="raty-star" data-score="3"></div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -145,7 +139,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 margin-top-10">
-                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, tempus viverra turpis.
+                                                        {{sch.address}}
                                                     </div>
                                                 </div>
                                             </div>

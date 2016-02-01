@@ -1,0 +1,386 @@
+<div class=" pace-done">
+    <div class="pace pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in hide"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-without-sidebar page-header-fixed in">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header" id="dashboard-navbar-header">
+                    <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> PSLE APP</a>
+                </div>
+
+                <ul class="nav nav-pills navbar-right" id="dashboard-nav">
+                    <li><a href="index.html" data-toggle="tab" aria-expanded="false">Dashboard</a></li>
+                    <li class="active"><a href="search.html" data-toggle="tab" aria-expanded="true">Search for Sec Schools</a></li>
+                </ul>
+                <!-- end mobile sidebar expand / collapse button -->
+
+            </div>
+            <!-- end container-fluid -->
+        </div>
+        <!-- end #header -->
+
+        <!-- begin #content -->
+        <div id="content" class="content">
+            <div class="row">
+                <!-- begin page-header -->
+                <div class="col-md-12">
+                    <h3 class="page-header">Name of School <small>Rating of school</small></h3>
+                    <!-- end page-header -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a data-target="#nav-pills-tab-1" data-toggle="tab" aria-expanded="true">Details of School</a></li>
+                        <li class=""><a data-target="#nav-pills-tab-2" data-toggle="tab" aria-expanded="false">Statistics</a></li>
+                        <!-- 
+								<li class=""><a href="#nav-pills-tab-4" data-toggle="tab" aria-expanded="false">Rate this School</a></li> -->
+                        <li class=""><a data-target="#nav-pills-tab-3" data-toggle="tab" aria-expanded="false">Comments on School</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="nav-pills-tab-1">
+                            <h3 class="m-t-10">Details of School</h3>
+                            <p>
+                                (School Name) is an autonomous secondary school in Serangoon, Singapore, catering to boys and girls taking the Special/Express Course as well as those taking the Normal(Academic/Technical) Course. Founded in 1911, it was the first Chinese-medium girls' school in Singapore, before it began accepting English-medium students and boys later in its history.
+                            </p>
+                            <p>
+                                As of Term 1 2016, the timetable now operate in an odd/even week basis. School generally ends at 2PM from Mondays to Thursdays now, with some exception for lower secondary, who are released at 1.30PM on certain days. School ends at 12.30PM for all students on Friday.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="nav-pills-tab-2">
+                            <h3 class="m-t-10">Statistics</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <!-- begin panel -->
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Olevels Passes for last 10 Years</h4>
+                                        </div>
+                                        <div class="panel-body green-border">
+                                            <ul class="media-list media-list-with-divider">
+                                                <li class="media media-sm">
+                                                    <div>
+                                                        <div id="graph">
+
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- end panel -->
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- begin panel -->
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">No. of Students with > 5A1s for last 10 Years</h4>
+                                        </div>
+                                        <div class="panel-body green-border">
+                                            <ul class="media-list media-list-with-divider">
+                                                <li class="media media-sm">
+                                                    <div>
+                                                        <div id="graph1">
+
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- end panel -->
+                                </div>
+                                <div class="col-md-4">
+                                    <!-- begin panel -->
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Entry Point for last 10 Years</h4>
+                                        </div>
+                                        <div class="panel-body green-border">
+                                            <ul class="media-list media-list-with-divider">
+                                                <li class="media media-sm">
+                                                    <div>
+                                                        <div id="graph2">
+
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- end panel -->
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="nav-pills-tab-3">
+
+                            <div class="panel-body">
+                                <ul id="search-school-list" class="media-list media-list-with-divider">
+                                    <!-- Start of List of School (This unit can be repeated) -->
+
+                                    <li class="media media-sm">
+                                        <div class="media-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <h4 class="media-heading">Good and Dedicated Teachers</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 margin-top-10">
+                                                    My son has been in this school for 2 years and i am grateful that his teachers have been constantly putting in effort to groom their students.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="media media-sm">
+                                        <div class="media-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <h4 class="media-heading">Accessible location</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 margin-top-10">
+                                                    There are many buses around the school that allows many kids to reach school on time.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="panel-footer">
+
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-4 margin-top-10 margin-bottom-10">
+                                            <input type="text" class="form-control" placeholder="Enter Header">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <input type="text" class="form-control" placeholder="Enter Comment">
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn btn-success pull-right">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <!-- <div class="tab-pane fade" id="nav-pills-tab-4">
+									<div class="row margin-top-10">
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-8">
+													<h4 class="margin-left-8">Commitment of Teachers</h4>
+												</div>
+												<div class="col-md-4">
+													<div class="btn btn-success pull-right button-width-60">4</div>
+												</div>
+											</div>
+											<div class="slider-wrapper">
+												<input type="text" class="js-range-1">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-8">
+													<h4 class="margin-left-8">Quality of School Materials</h4>
+												</div>
+												<div class="col-md-4">
+													<div class="btn btn-success pull-right button-width-60">4</div>
+												</div>
+											</div>
+											<div class="slider-wrapper">
+												<input type="text" class="js-range-2">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-8">
+													<h4 class="margin-left-8">Accessiblilty of School</h4>
+												</div>
+												<div class="col-md-4">
+													<div class="btn btn-success pull-right button-width-60">4</div>
+												</div>
+											</div>
+											<div class="slider-wrapper">
+												<input type="text" class="js-range-3">
+											</div>
+										</div>
+									</div>
+									<div class="row margin-top-10">
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-8">
+													<h4 class="margin-left-8">Commitment of Teachers</h4>
+												</div>
+												<div class="col-md-4">
+													<div class="btn btn-success pull-right button-width-60">4</div>
+												</div>
+											</div>
+											<div class="slider-wrapper">
+												<input type="text" class="js-range-4">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-8">
+													<h4 class="margin-left-8">Quality of School Materials</h4>
+												</div>
+												<div class="col-md-4">
+													<div class="btn btn-success pull-right button-width-60">4</div>
+												</div>
+											</div>
+											<div class="slider-wrapper">
+												<input type="text" class="js-range-5">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="row">
+												<div class="col-md-8">
+													<h4 class="margin-left-8">Accessiblilty of School</h4>
+												</div>
+												<div class="col-md-4">
+													<div class="btn btn-success pull-right button-width-60">4</div>
+												</div>
+											</div>
+											<div class="slider-wrapper">
+												<input type="text" class="js-range-6">
+											</div>
+										</div>
+									</div>
+								</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+
+    <script>
+        $(function () {
+
+            /*for (i = 1; i <= 6; i++) { 
+            	var range = '.js-range-' + i;
+                var elem = document.querySelector(range);
+            	var init = new Powerange(elem, { 
+            		min: 0, max: 5, start: 1 
+            	});
+            }*/
+
+            $('#graph').highcharts({
+                title: {
+                    text: 'Percentage of Olevel Passes',
+                    x: -20 //center
+                },
+                xAxis: {
+                    categories: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Percentage (%)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+			            }]
+                },
+                tooltip: {
+                    valueSuffix: '%'
+                },
+                legend: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Percentage',
+                    data: [96.0, 96.9, 97.5, 94.5, 98.2, 97.5, 99.2, 99.5, 99.3, 99.8]
+			        }]
+            });
+
+            $('#graph1').highcharts({
+                title: {
+                    text: 'Percentage of Students',
+                    x: -20 //center
+                },
+                xAxis: {
+                    categories: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Percentage (%)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#3A6CAB'
+			            }]
+                },
+                tooltip: {
+                    valueSuffix: '%'
+                },
+                legend: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Percentage',
+                    data: [75.0, 76.9, 79.5, 76.5, 78.2, 79.5, 78.2, 78.5, 79.3, 79.8]
+			        }]
+            });
+
+            $('#graph2').highcharts({
+                title: {
+                    text: 'Entry Point for PSLE Students',
+                    x: -20 //center
+                },
+                xAxis: {
+                    categories: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Entry Point (Marks)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#3A6CAB'
+			            }]
+                },
+                tooltip: {
+                    valueSuffix: ''
+                },
+                legend: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Entry Point',
+                    data: [236, 236, 237, 238, 238, 240, 235, 238, 240, 241]
+			        }]
+            });
+        });
+    </script>
+</div>

@@ -48,6 +48,7 @@ angular.module('psleApp')
     
     searchCtrl.randomMarkers = [];
     searchCtrl.markers = [];
+    searchCtrl.googlemap = {};
     
     
     function pause(milliseconds) {
@@ -67,8 +68,20 @@ angular.module('psleApp')
                 
                 searchCtrl.randomMarkers.push({
                     id: school.$id,
+                    sch: school.school,
                     latitude: school.lat,
-                    longitude: school.lng
+                    longitude: school.lng,
+                    showMarker: false,
+                    /*events: {
+                        click: function(e){
+                            var windows = searchCtrl.googlemap.getChildWindows();
+
+                            for (var i = 0; i < windows.length; i++){
+                                windows[i].hideWindow();
+                            }
+                        }
+                    },*/
+                    control: {}
                 });
                 
                 /*setTimeout(function() {
@@ -107,6 +120,110 @@ angular.module('psleApp')
         console.log(eventName);
         console.log(model);
     };
+    
+    
+    /**
+     * @name: listOfSecSchools
+     * @type: variable
+     * @description: provides a list of all the secondary schools in singapore
+     */
+        
+    var secSchoolArray = $firebaseArray(new Firebase(FirebaseUrl + '0'));
+
+    secSchoolArray.$loaded(function(results) {
+
+        searchCtrl.listOfSecSchools = results;
+    });
+    
+    
+    /**
+     * @name: areaOfSchool
+     * @type: variable
+     * @description: provides the area of school
+     */
+
+    searchCtrl.areaOfSchool = [
+        "North",
+        "South",
+        "East",
+        "West",
+        "Central"
+    ];
+    
+    
+    /**
+     * @name: ratingsOfSchool
+     * @type: variable
+     * @description: provides the ratings of school
+     */
+
+    searchCtrl.ratingsOfSchool = [
+        "1 Star",
+        "2 Stars",
+        "3 Stars",
+        "4 Stars",
+        "5 Stars"
+    ];
+    
+    
+    /**
+     * @name: entryPointRange
+     * @type: variable
+     * @description: provides the entry point range of schools
+     */
+
+    searchCtrl.entryPointRange = [
+        "< 100",
+        "101 - 120",
+        "121 - 140",
+        "141 - 160",
+        "161 - 180",
+        "181 - 200",
+        "201 - 220",
+        "221 - 240",
+        "241 - 260",
+        "261 - 280",
+        "281 - 300"
+    ];
+    
+    
+    /**
+     * @name: typesOfSchool
+     * @type: variable
+     * @description: provides the types of schools
+     */
+
+    searchCtrl.typesOfSchool = [
+        "Integrated Programme (IP)",
+        "Independent Schools",
+        "Autonomous Schools",
+        "Special Assistant Plan Schools"
+    ];
+    
+    
+    /**
+     * @name: hmtOffered
+     * @type: variable
+     * @description: provides the hmt offered by schools
+     */
+
+    searchCtrl.hmtOffered = [
+        "Higher Chinese Language",
+        "Higher Malay Language",
+        "Higher Tamil Language",
+        "Chinese (Special Programme)",
+        "Malay (Special Programme)"
+    ];
+    
+    
+    /**
+     * @name: promptAlert
+     * @description: informs user that the function has not been implemented yet
+     */
+
+    searchCtrl.promptAlert = function () {
+        alert("Sorry, this feature has not been implemented in our beta version :(");
+    }
 
 
 });

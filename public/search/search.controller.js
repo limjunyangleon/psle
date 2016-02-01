@@ -58,7 +58,7 @@ angular.module('psleApp')
     var index = 0;
     
     uiGmapGoogleMapApi.then(function (maps) {
-        // geocode chosen town
+        
         var schoolList = $firebaseArray(new Firebase(FirebaseUrl + '0'));
         
         schoolList.$loaded(function(result) {
@@ -95,7 +95,7 @@ angular.module('psleApp')
                 
                 index++;*/
             });
-
+            
             //searchCtrl.randomMarkers = searchCtrl.markers;
 
         });

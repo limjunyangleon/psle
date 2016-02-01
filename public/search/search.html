@@ -1,23 +1,269 @@
-<h1>
-    THIS IS THE SEARCH PAGE
+<div class=" pace-done">
+    <div class="pace pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade in hide"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade page-without-sidebar page-header-fixed in">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header" id="dashboard-navbar-header">
+                    <a ui-sref="home" class="navbar-brand"><span class="navbar-logo"></span> PSLE APP</a>
+                </div>
+
+                <ul class="nav nav-pills navbar-right" id="dashboard-nav">
+                    <li><a ui-sref="home" data-toggle="tab" aria-expanded="false">Dashboard</a></li>
+                    <li class="active"><a ui-sref="search" data-toggle="tab" aria-expanded="true">Search for Sec Schools</a></li>
+                </ul>
+                <!-- end mobile sidebar expand / collapse button -->
+
+            </div>
+            <!-- end container-fluid -->
+        </div>
+        <!-- end #header -->
+
+        <!-- begin #content -->
+
+        <div id="content" class="content">
+            <!-- <div class="row">
+						<div class="col-md-12">
+							<h3 class="page-header">Search</h3>
+						</div>
+					</div> -->
+            <div class="row">
+                <form id="search-form">
+                    <!-- <div class="col-md-3">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Search</label>
+									<input type="text" class="form-control">
+								</div>
+							</div> -->
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Area of School</label>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Rating of School</label>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Entry Point Range</label>
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Type of School</label>
+                            <select class="form-control">
+                                <option>Integrated Programme (IP) Schools</option>
+                                <option>Independent Schools</option>
+                                <option>Autonomous Schools</option>
+                                <option>Special Assistance Plan Schools</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">HMT Offered</label>
+                            <select class="form-control">
+                                <option>Higher Chinese Language</option>
+                                <option>Higher Malay Language</option>
+                                <option>Higher Tamil Language</option>
+                                <option>Chinese (Special Programme)</option>
+                                <option>Malay (Special Programme)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="search-button" type="submit" class="btn btn-sm btn-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row margin-top-10">
+                <div class="col-md-12">
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h class="panel-title">List of Schools</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Map can be inserted here-->
+                                    <ui-gmap-google-map center='searchCtrl.map.center' zoom='searchCtrl.map.zoom'>
+                                        <ui-gmap-markers models="searchCtrl.randomMarkers" coords="'self'" icon='{url: "/public/img/school_icon.png"}' click="searchCtrl.clicking()">
+                                        </ui-gmap-markers>
+
+                                    </ui-gmap-google-map>                   
+                                </div>
+                                <div class="col-md-6">
+                                    <ul id="search-school-list" class="media-list media-list-with-divider">
+                                        <!-- Start of List of School (This unit can be repeated) -->
+                                        <li class="media media-sm">
+                                            <div class="media-body">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <h4 class="media-heading">Anglo Chinese Institution</h4>
+                                                        <div class="raty-star" data-score="3"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div onclick="location.href = 'details.html'" type="button" class="btn btn-sm btn-inverse pull-right view-details-button">View Details</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 margin-top-10">
+                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, tempus viverra turpis.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- End of List of School -->
+
+                                        <!-- <li class="media media-sm">
+													<div class="media-body">
+														<div class="row">
+															<div class="col-md-8">
+																<h4 class="media-heading">Anglo Chinese Institution</h4>
+																<div class="raty-star" data-score="4"></div>
+															</div>
+															<div class="col-md-4">
+																<div type="button" class="btn btn-sm btn-inverse pull-right">View Details</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12 margin-top-10">
+																Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+															</div>
+														</div>
+													</div>
+												</li> -->
+
+                                        <!-- <li class="media media-sm">
+				                                    <div class="media-body">
+														<div class="row">
+															<div class="col-md-5">
+																<h4 class="media-heading">School Name</h4>
+															</div>
+															<div class="col-md-3"></div>
+															<div class="col-md-4">
+																<div type="button" class="btn btn-xs btn-success"><i class="fa fa-thumbs-up fa-2x"></i></div>
+							    								<div type="button" class="btn btn-xs btn-danger"><i class="fa fa-thumbs-down fa-2x"></i></div>
+							    								<div type="button" class="btn btn-sm btn-inverse">View Details</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12 margin-top-10">
+																Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+															</div>
+														</div>
+													</div>
+				                                </li>
+				                                <li class="media media-sm">
+				                                    <div class="media-body">
+														<div class="row">
+															<div class="col-md-5">
+																<h4 class="media-heading">School Name</h4>
+															</div>
+															<div class="col-md-3"></div>
+															<div class="col-md-4">
+																<div type="button" class="btn btn-xs btn-success"><i class="fa fa-thumbs-up fa-2x"></i></div>
+							    								<div type="button" class="btn btn-xs btn-danger"><i class="fa fa-thumbs-down fa-2x"></i></div>
+							    								<div type="button" class="btn btn-sm btn-inverse">View Details</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12 margin-top-10">
+																Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+															</div>
+														</div>
+													</div>
+				                                </li>
+				                                <li class="media media-sm">
+				                                    <div class="media-body">
+														<div class="row">
+															<div class="col-md-5">
+																<h4 class="media-heading">School Name</h4>
+															</div>
+															<div class="col-md-3"></div>
+															<div class="col-md-4">
+																<div type="button" class="btn btn-xs btn-success"><i class="fa fa-thumbs-up fa-2x"></i></div>
+							    								<div type="button" class="btn btn-xs btn-danger"><i class="fa fa-thumbs-down fa-2x"></i></div>
+							    								<div type="button" class="btn btn-sm btn-inverse">View Details</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12 margin-top-10">
+																Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.
+															</div>
+														</div>
+													</div>
+				                                </li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+
+    <script>
+        $(function () {
+            $('#search-school-list').slimScroll({
+                height: '60vh'
+            });
+
+            $('.raty-star').raty({
+                half: true,
+                starOn: "img/rating/star-on.png",
+                starOff: "img/rating/star-off.png",
+                starHalf: "img/rating/star-half.png",
+                readOnly: true,
+                score: function () {
+                    return $(this).attr('data-score');
+                }
+            });
+        });
+    </script>
     
-    <a ng-click="homeCtrl.logout()">Logout</a>
-    
-    <ui-gmap-google-map center='searchCtrl.map.center' zoom='searchCtrl.map.zoom'>
-    
-        <!--<ui-gmap-marker
-                idKey="searchCtrl.marker.id"
-                coords="searchCtrl.marker.coords"
-                options="searchCtrl.marker.options"
-                >
-        </ui-gmap-marker>-->
-        
-        <ui-gmap-markers models="searchCtrl.randomMarkers" coords="'self'" icon='{url: "/public/img/school_icon.png"}' click="searchCtrl.clicking()">
-            <ui-gmap-windows show="'true'" doRebuildAll="true">
-                <div ng-non-bindable>Nan Hua Primary School<br/>West</div>
-            </ui-gmap-windows>
-        </ui-gmap-markers>
-        
-    </ui-gmap-google-map>
-    
-</h1>
+</div>
